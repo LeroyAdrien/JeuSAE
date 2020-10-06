@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{005eef37-3a7b-8a23-6d79-a4f02fbe741a}</ProjectGuid>
+    <ProjectGuid>{3096198b-4dd3-2609-cc82-7397bf9089b9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -36,8 +36,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\MapDrawer.cs" />
      <Compile Include="Assets\Scripts\MapGenerator.cs" />
+     <Compile Include="Assets\Scripts\MarchingSquares.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/adrien/Unity/Hub/Editor/2019.4.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -564,31 +564,31 @@
         <HintPath>/home/adrien/Unity/Hub/Editor/2019.4.0f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>/home/adrien/Documents/Perso/Unity/Jeu_Saint_Aubin/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>/home/adrien/Documents/Perso/Unity/JeuSAE/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>/home/adrien/Documents/Perso/Unity/Jeu_Saint_Aubin/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>/home/adrien/Documents/Perso/Unity/JeuSAE/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>/home/adrien/Documents/Perso/Unity/Jeu_Saint_Aubin/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>/home/adrien/Documents/Perso/Unity/JeuSAE/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>/home/adrien/Documents/Perso/Unity/Jeu_Saint_Aubin/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>/home/adrien/Documents/Perso/Unity/JeuSAE/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>/home/adrien/Documents/Perso/Unity/Jeu_Saint_Aubin/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>/home/adrien/Documents/Perso/Unity/JeuSAE/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-        <HintPath>/home/adrien/Documents/Perso/Unity/Jeu_Saint_Aubin/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+        <HintPath>/home/adrien/Documents/Perso/Unity/JeuSAE/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>/home/adrien/Documents/Perso/Unity/Jeu_Saint_Aubin/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>/home/adrien/Documents/Perso/Unity/JeuSAE/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>/home/adrien/Documents/Perso/Unity/Jeu_Saint_Aubin/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>/home/adrien/Documents/Perso/Unity/JeuSAE/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>/home/adrien/Documents/Perso/Unity/Jeu_Saint_Aubin/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>/home/adrien/Documents/Perso/Unity/JeuSAE/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

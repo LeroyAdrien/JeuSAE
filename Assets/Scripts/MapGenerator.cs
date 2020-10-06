@@ -2,22 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class MapGenerator
+public class MapGenerator : MonoBehaviour
 {
-    public static int[,] GeneratePoints(int height, int width)
+    public int m_height;
+    public int m_width;
+
+    public int m_size;
+    // Start is called before the first frame update
+
+    public void GenerateMap()
     {
-        int[,] matrix = new int[height, width];
-        for (int y = 0; y < height; y++)
-            for (int x = 0; x < width; x++)
+        ResetPreviousIteration();
+        int[,] matrix = MarchingSquares.GeneratePoints(m_height, m_width);
+
+        for (int y = 0; y < m_height; y++)
+            for (int x = 0; x < m_width; x++)
             {
-                matrix[y, x] = Random.Range(0, 2);
+                DisplayPoint(x, y, m_size, matrix[y,x]);
             }
-        return matrix;
     }
-/*
-    public static List<Vector3[]> GenerateLines(int[,] pointMatrix)
+    void DisplayPoint(int x, int y, int size, int value)
     {
+        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        Renderer sphereRenderer = sphere.GetComponent<Renderer>();
+
+        sphere.gameObject.tag = "Points";
+        sphere.transform.position = new Vector3(x * size, y * size, 0);
+        sphere.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        Debug.Log(value);
+
+        var tempMaterial = new Material(sphereRenderer.sharedMaterial);
+        if (value == 1)
+        {
+            tempMaterial.color =Color.white;
+        }
+        else if (value == 0)
+        {
+            tempMaterial.color =Color.black;
+        }
+
+        sphereRenderer.sharedMaterial=tempMaterial;
 
     }
-    */
+
+    void ResetPreviousIteration()
+    {
+        GameObject[] pointsToclean = GameObject.FindGameObjectsWithTag("Points");
+        foreach (GameObject point in pointsToclean)
+        {
+            GameObject.DestroyImmediate(point);
+        }
+    }
 }
