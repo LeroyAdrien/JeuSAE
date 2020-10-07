@@ -9,7 +9,6 @@ public class MapGenerator : MonoBehaviour
 
     public int m_size;
     // Start is called before the first frame update
-
     public void GenerateMap()
     {
         ResetPreviousIteration();
@@ -26,11 +25,12 @@ public class MapGenerator : MonoBehaviour
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         Renderer sphereRenderer = sphere.GetComponent<Renderer>();
 
+        sphere.transform.parent=transform;
         sphere.gameObject.tag = "Points";
         sphere.transform.position = new Vector3(x * size, y * size, 0);
         sphere.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-        Debug.Log(value);
 
+        
         var tempMaterial = new Material(sphereRenderer.sharedMaterial);
         if (value == 1)
         {
@@ -44,6 +44,8 @@ public class MapGenerator : MonoBehaviour
         sphereRenderer.sharedMaterial=tempMaterial;
 
     }
+
+    
 
     void ResetPreviousIteration()
     {
