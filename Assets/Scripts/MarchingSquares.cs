@@ -7,11 +7,12 @@ public static class MarchingSquares
     //Generate Points for the matrix 
     public static int[,] GeneratePoints(int height, int width)
     {
+        Random.seed = 42;
         int[,] matrix = new int[height, width];
-        for (int y = 0; y < height; y++)
+        for (int z = 0; z < height; z++)
             for (int x = 0; x < width; x++)
             {
-                matrix[y, x] = Random.Range(0, 2);
+                matrix[z, x] = Random.Range(0, 2);
             }
         return matrix;
     }
@@ -27,24 +28,32 @@ public static class MarchingSquares
             for (int j = 0; j < width - 1; j++)
             {
                 int a = pointMatrix[i, j];
-                int b = pointMatrix[i, j + 1];
-                int c = pointMatrix[i + 1, j];
+                int b = pointMatrix[i + 1, j];
+                int c = pointMatrix[i, j + 1];
                 int d = pointMatrix[i + 1, j + 1];
 
                 int compte = BitsToNumber(a, b, c, d);
-                murs.Add(GenerateSingleWall((float)i, (float)j, compte));
+                Debug.Log("a:" + a + "b:" + b + "c:" + c + "d:" + d + "compte:" + compte);
+
+                StoreWallsPositions((float)i, (float)j, compte, murs);
 
             }
         return murs;
     }
 
-    public static Mur GenerateSingleWall(float x, float y, int value)
+    public static void StoreWallsPositions(float x, float z, int value, List<Mur> listWalls)
     {
-        Mur mur = new Mur(Vector3.zero,Vector3.zero);
         switch (value)
         {
+            /*
             case 1:
-                mur = new Mur(new Vector3(x, y + 0.5f, 0f), new Vector3(x + 0.5f, y, 0f));
+                listWalls.Add(new Mur(new Vector3(x, 0f, z + 0.5f), new Vector3(x + 0.5f, 0f, z)));
+                break;
+            */
+            case 11:
+                listWalls.Add(new Mur(new Vector3(x + 0.5f, 0f, z), new Vector3(x + 1, 0f, z + 0.5f)));
+                break;
+            case 14:
                 break;
                 /*
                 case 2:
@@ -71,13 +80,11 @@ public static class MarchingSquares
                     break;
                 case 13:
                     break;
-                case 14:
-                    break;
+                
                 case 15:
                     break;
                 */
         }
-        return mur;
     }
 
     public static int BitsToNumber(int a, int b, int c, int d)
