@@ -17,35 +17,52 @@ public class MapGenerator : MonoBehaviour
         for (int y = 0; y < m_height; y++)
             for (int x = 0; x < m_width; x++)
             {
-                DisplayPoint(x, y, m_size, matrix[y,x]);
+                DisplayPoint(x, y, m_size, matrix[y, x]);
             }
+
+        List<Mur> wallList = MarchingSquares.GenerateWalls(matrix);
+
+        foreach (Mur wall in wallList)
+        {
+            DisplayWall(wall.posInitial,wall.posFinal,3f);
+        }
     }
     void DisplayPoint(int x, int y, int size, int value)
     {
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         Renderer sphereRenderer = sphere.GetComponent<Renderer>();
 
-        sphere.transform.parent=transform;
+        sphere.transform.parent = transform;
         sphere.gameObject.tag = "Points";
         sphere.transform.position = new Vector3(x * size, y * size, 0);
         sphere.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
 
-        
+
         var tempMaterial = new Material(sphereRenderer.sharedMaterial);
         if (value == 1)
         {
-            tempMaterial.color =Color.white;
+            tempMaterial.color = Color.white;
         }
         else if (value == 0)
         {
-            tempMaterial.color =Color.black;
+            tempMaterial.color = Color.black;
         }
 
-        sphereRenderer.sharedMaterial=tempMaterial;
+        sphereRenderer.sharedMaterial = tempMaterial;
 
     }
 
-    
+    void DisplayWall(Vector3 posInitial, Vector3 posFinal, float length)
+    {
+        
+        GameObject rectangle = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        rectangle.transform.LookAt(posFinal);
+
+        rectangle.transform.localScale= new Vector3(length,0.1f,0.1f);
+
+    }
+
+
 
     void ResetPreviousIteration()
     {
@@ -56,3 +73,4 @@ public class MapGenerator : MonoBehaviour
         }
     }
 }
+
